@@ -366,7 +366,9 @@ h1, h2, h3, p, figure, dl, dd { margin: 0; }
 /* ---------- EPK ---------- */
 .epk__grid { display: grid; gap: clamp(40px, 6vw, 96px); }
 .epk .eyebrow { margin-bottom: 12px; }
-.epk .lede { margin-top: 28px; font-weight: 500; }
+.epk__bio { display: grid; gap: 1em; margin-top: 28px; }
+.epk .lede { font-weight: 500; }
+.epk .epk__kicker { font-weight: 700; }
 @media (min-width: 900px) { .epk__grid { grid-template-columns: 1fr 1fr; } }
 
 .facts { border-top: 3px solid var(--black); }
