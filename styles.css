@@ -212,7 +212,6 @@ h1, h2, h3, p, figure, dl, dd { margin: 0; }
   display: inline-block;
   font-size: .8rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
 }
-.release-bar .eyebrow { color: var(--teal); margin-right: 8px; }
 .eyebrow--teal { color: var(--teal); }
 
 /* ---------- Ticker ---------- */
@@ -286,7 +285,8 @@ h1, h2, h3, p, figure, dl, dd { margin: 0; }
 }
 
 /* ---------- Shows ---------- */
-.show-list { border-top: 2px solid var(--black); }
+.show-list { margin-top: -20px; }
+.show-empty[hidden] { display: none; }
 .show {
   display: grid; grid-template-columns: auto 1fr; gap: 8px 24px; align-items: center;
   padding: 22px 0; border-bottom: 2px solid var(--black);
@@ -296,6 +296,8 @@ h1, h2, h3, p, figure, dl, dd { margin: 0; }
 .show__date span { font-size: 1.1rem; }
 .show__where strong { display: block; font-size: 1.4rem; font-weight: 700; line-height: 1.2; }
 .show__where span { font-weight: 500; }
+.show__time { font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.show__where .tag--black { margin: 0 0 8px; background: var(--black); color: var(--orange); }
 .show .btn { grid-column: 1 / -1; justify-self: start; }
 @media (min-width: 768px) {
   .show { grid-template-columns: 6rem 1fr auto; }

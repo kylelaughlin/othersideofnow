@@ -1,11 +1,14 @@
 /* ==========================================================================
    SHOWS: edit this list to add dates.
    date:    YYYY-MM-DD (shows disappear automatically the day after)
-   tickets: optional link; leave '' to show "Free / at the door"
+   tickets: optional link; leave '' to hide the ticket button
+   note:    optional short line, e.g. 'Battle of the Bands'
+   time:    optional set time, e.g. '8:30 PM'
    ========================================================================== */
 const SHOWS = [
-  // { date: '2026-11-14', city: 'Omaha, NE', venue: 'The Waiting Room', tickets: 'https://example.com' },
+  // { date: '2026-11-14', time: '9:00 PM', city: 'Omaha, NE', venue: 'The Waiting Room', tickets: 'https://example.com', note: '' },
   { date: '2025-10-09', city: 'Lincoln, NE', venue: '1867 Bar', tickets: '' },
+  { date: '2026-11-10', time: '8:30 PM', city: 'Council Bluffs, IA', venue: 'Whiskey Roadhouse at Horseshoe Casino', tickets: '', note: 'Battle of the Bands' },
 ];
 
 /* Gallery photos, in display order */
@@ -53,10 +56,10 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   list.innerHTML = upcoming.map(s => `
     <li class="show reveal">
       <p class="show__date"><span>${month.format(s.d)}</span><b>${s.d.getDate()}</b></p>
-      <p class="show__where"><strong>${s.venue}</strong><span>${s.city} &middot; ${weekday.format(s.d)}</span></p>
+      <p class="show__where">${s.note ? `<span class="tag tag--black">${s.note}</span>` : ''}<strong>${s.venue}</strong><span>${s.city} &middot; ${weekday.format(s.d)}${s.time ? ` &middot; <b class="show__time">${s.time} set</b>` : ''}</span></p>
       ${s.tickets
         ? `<a class="btn btn--black" href="${s.tickets}" target="_blank" rel="noopener">Tickets <svg class="icon"><use href="#i-arrow"/></svg></a>`
-        : `<span class="btn btn--black" aria-disabled="true" style="cursor:default">At the door</span>`}
+        : ''}
     </li>`).join('');
 })();
 
